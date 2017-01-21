@@ -1,6 +1,8 @@
 CFLAGS = -O1 -Wall
 
-all: log.c
+all: log
+
+log: log.c
 	${CC} ${CFLAGS} -o $@ $^
 
 clean:

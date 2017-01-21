@@ -46,10 +46,8 @@ readlog( FILE *fp, char filename[] )
 	char *time, *mode;
 	char *line;
 	char *pat, *tpat;
-	char tmp[3];
 	char *chan;
-	char *vchan, *nick;
-	char *mask, *opt;
+	char *nick;
 	size_t fileline;
 	char *r;
 
@@ -100,7 +98,7 @@ readlog( FILE *fp, char filename[] )
 
 			nick = strchr( chan, ':' );
 
-			printf( BOLD RED "%c", pat );
+			printf( BOLD RED "%c", *pat );
 			if( nick ) {
 				nick = '\0';
 				nick++;
@@ -109,7 +107,7 @@ readlog( FILE *fp, char filename[] )
 			else {
 				printf( "%s", chan );
 			}
-			printf( "%c" RESET, tpat );
+			printf( "%c" RESET, *tpat );
 			printf( " " );
 
 			printf( WHITE "%s" RESET, line );
@@ -123,7 +121,7 @@ DUMP:
 			printf( "\n" );
 	}
 
-	return ;
+	return 0;
 }
 
 
